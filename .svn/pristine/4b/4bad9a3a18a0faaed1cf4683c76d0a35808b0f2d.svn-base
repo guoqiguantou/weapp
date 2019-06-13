@@ -1,0 +1,77 @@
+/* accountBook/pages/saleslist/saleslist.wxss */
+.container {
+  background: #efeff4;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+.table {
+  background: #fff;
+  display: flex;
+}
+
+.table-left {
+  min-width: 90px;
+}
+
+.table-right {
+  width: calc(100% - 90px); 
+}
+
+.table-left>view {
+  height:40px;
+  line-height: 40px;
+  font-size:13px;
+  color: #333;
+  text-align: center;
+  border-bottom: 1rpx solid #e6e6e6;
+  border-right: 1rpx solid #e6e6e6;
+}
+.table-left>view:nth-child(2) {
+  color: #666;
+  font-size: 12px;
+}
+.table-left>view:nth-child(3) {
+  font-size: 14px;
+	color: #3a93ff;
+}
+
+.warp {
+  height:100%;
+  display: flex;
+}
+.table-tk{
+}
+.table-th{
+  text-align: center;
+  font-size: 12px;
+	color: #999999;
+  border-bottom: 1rpx solid #e6e6e6;
+  border-right: 1rpx solid #e6e6e6;
+  line-height: 40px;
+}
+.table-con{
+  display: flex;
+}
+.table-tl{
+}
+.table-tl>view{
+  min-width: 125px;
+  text-align: center;
+  font-size: 13px;
+	color: #333;
+  border-bottom: 1rpx solid #e6e6e6;
+  border-right: 1rpx solid #e6e6e6;
+  line-height: 40px;
+}
+.table-tl>view:nth-child(1) {
+  color: #666;
+  font-size: 12px;
+}
+.table-tl>view:nth-child(2) {
+  font-size:14px;
+	color: #3a93ff;
+}
+.mytabs .van-tab--active {
+  color: #3A93FF!important;
+}

@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "销售报价",
+  "usingComponents": {
+    "i-toast": "../../../dist1/toast/index",
+    "van-dialog": "../../../dist/dialog/index"
+  }
+}

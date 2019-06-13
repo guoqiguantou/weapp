@@ -1,0 +1,51 @@
+/* pages/personInfo/personInfo.wxss */
+.warp{
+  min-height: 100vh;
+  box-sizing: border-box;
+  background: #efeff4;
+  overflow: hidden;
+}
+.warp text{
+  display: block;
+  border-radius: 8rpx;
+  padding: 20rpx 0;
+  position:relative;
+  color:wheat;
+  font-size:30rpx;
+  text-align: center;
+  font-weight: 600;
+  z-index: 100;
+}
+.photo{
+  width: 100rpx !important;
+  height: 100rpx !important;
+  border-radius: 50rpx !important;
+  z-index: 100;
+  position:relative;
+  display:block;
+  margin:30rpx auto;
+}
+.usertext{
+  display: block;
+  border-radius: 8rpx;
+  padding: 20rpx 0;
+  position:relative;
+  color:wheat;
+  font-size:30rpx;
+  text-align: center;
+  font-weight: 600;
+  z-index: 100;
+}
+.avatar{
+  text-align:center;
+  margin:5rpx 0 0 0;
+  position: relative;
+  height: 270rpx;
+  overflow: hidden;
+}
+.avatar image{
+  position: absolute;
+  height: 270rpx;
+  width:100%;
+  left: 0
+}

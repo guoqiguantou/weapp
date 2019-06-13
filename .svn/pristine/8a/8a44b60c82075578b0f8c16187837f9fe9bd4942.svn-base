@@ -1,0 +1,42 @@
+<!--accountBook/pages/cldform/cldform.wxml-->
+<view class='history-table-wrap'>
+  <view class="table">
+    <view class="tr">
+      <view class="th th1">名称</view>
+      <view class="th th2">{{nowYear}}年</view>
+      <view class="th th3">{{preYear}}年</view>
+    </view>
+    <!-- 总收入金额 -->
+    <view class="tr thead">
+      <view class="td td1">{{total.name}}</view>
+      <view class="td td2">¥{{total['2019']}}</view>
+      <view class="td td3">¥{{total['2018']}}</view>
+    </view>
+    <!-- 补贴总金额 -->
+    <view  wx:for="{{tbody}}" wx:for-item="item" wx:key="key" wx:for-index="index">
+      <view class="tr thead">
+        <view class="td td1">{{index}}</view>
+        <view class="td td2">¥{{item.sum['2019']}}</view>
+        <view class="td td3">¥{{item.sum['2018']}}</view>
+      </view>
+      <view class="tr tbody" wx:for="{{item.data}}" wx:for-item="item1" wx:key="key1" wx:for-index="index1">
+          <view class="td td1">{{index1}}</view>
+          <view class="td td2" data-type="{{}}" data-year="{{}}" bindtap='handleClick'>{{item1['2019']}}</view>
+          <view class="td td3" data-type="{{}}" data-year="{{}}" bindtap='handleClick'>{{item1['2018']}}</view>
+      </view>
+    </view>
+
+    <!-- 收款总金额 -->
+    <!-- <view class="tr">
+          <view class="td td1">{{item.name}}</view>
+          <view class="td td2">¥{{item.nowYear}}</view>
+          <view class="td td3">¥{{item.preYear}}</view>
+      </view>
+      <view class="tr" wx:for="{{table}}" wx:item="item" wx:key="key">
+          <view class="td td1">{{item.name}}</view>
+          <view class="td td2" data-type="{{item.type}}" data-year="{{nowYear}}" bindtap='handleClick'>¥{{item.nowYear}}</view>
+          <view class="td td3" data-type="{{item.type}}" data-year="{{preYear}}" bindtap='handleClick'>¥{{item.preYear}}</view>
+      </view> -->
+  </view>
+  <i-message id="message" />
+</view>

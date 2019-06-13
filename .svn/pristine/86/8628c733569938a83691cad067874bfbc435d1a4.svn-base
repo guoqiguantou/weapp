@@ -1,0 +1,93 @@
+{
+	"description": "项目配置文件",
+	"packOptions": {
+		"ignore": []
+	},
+	"setting": {
+		"urlCheck": false,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true,
+		"autoAudits": false
+	},
+	"compileType": "miniprogram",
+	"libVersion": "2.4.0",
+	"appid": "wxdd15c478fa121bec",
+	"projectname": "%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%88%86%E5%8C%85",
+	"debugOptions": {
+		"hidedInDevtools": []
+	},
+	"isGameTourist": false,
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"currentL": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": 7,
+			"list": [
+				{
+					"id": 0,
+					"name": "主页面",
+					"pathName": "pages/farmingHome/farmingHome",
+					"query": ""
+				},
+				{
+					"id": 1,
+					"name": "新增塘口---地址",
+					"pathName": "farmingCarlendar/pages/addPond/addPond",
+					"query": ""
+				},
+				{
+					"id": 3,
+					"name": "操作",
+					"pathName": "farmingCarlendar/pages/handle/handle",
+					"query": ""
+				},
+				{
+					"id": 4,
+					"name": "新增工人",
+					"pathName": "farmingCarlendar/pages/addWorker/addWorker",
+					"query": ""
+				},
+				{
+					"id": 4,
+					"name": "塘口列表",
+					"pathName": "farmingCarlendar/pages/pondList/pondList",
+					"query": ""
+				},
+				{
+					"id": 5,
+					"name": "农事记录",
+					"pathName": "farmingCarlendar/pages/farmingRecord/farmingRecord",
+					"query": ""
+				},
+				{
+					"id": 6,
+					"name": "工人列表",
+					"pathName": "farmingCarlendar/pages/workerList/workerList",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "农事记录",
+					"pathName": "pages/more/more",
+					"query": ""
+				}
+			]
+		}
+	}
+}

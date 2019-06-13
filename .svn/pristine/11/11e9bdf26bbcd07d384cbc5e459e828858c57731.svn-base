@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "小龙虾产销记录",
+  "usingComponents": {
+    "van-swipe-cell": "../../../dist/swipe-cell/index"
+  }
+}

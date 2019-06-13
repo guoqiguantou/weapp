@@ -1,0 +1,177 @@
+// accountBook/pages/craylist/craylist.js
+import { $request, formatData } from "../../../utils/util.js";
+const { $Message } = require('../../../dist1/base/index');
+const { $Toast } = require('../../../dist1/base/index');
+import Dialog from '../../../dist/dialog/dialog';
+const app = getApp();
+Page({
+
+  /**
+   * 页面的初始数据
+   */
+  data: {
+    tablenamea: ['长工','临时工'],
+    tablesum2018a:null,
+    tablesum2019a: null,
+    tabledata2018a:[12,34],
+    tabledata2019a: [12, 34],
+    tablenameb: ['总人数', '工作总天数'],
+    tabledata2018b: [12, 34],
+    tabledata2019b: [12, 34],
+    yeardata:[],
+  },
+  //获取报表列表
+  getAlllist() {
+    $request({
+      url: app.globalData.serverBook + "sell/selectSellStatement",
+      method: "POST",
+      type: 'form',
+    }).then(res => {
+      if (res.data.resultCode == 0) {
+        let dataname = [];
+        let zxl2018 = [];
+        let ygzsr2018 = [];
+        let pjj2018 = [];
+        let zxl2019 = [];
+        let ygzsr2019 = [];
+        let pjj2019 = [];
+        let datalist = res.data.data.data;
+        let datasum = res.data.data.sum;
+        for (let i in datalist) {
+          dataname.push(datalist[i].name)
+          zxl2018.push(datalist[i].data[0]['2018'].allOutPut)
+          ygzsr2018.push(datalist[i].data[0]['2018'].allIn)
+          pjj2018.push(datalist[i].data[0]['2018'].average_money)
+
+          zxl2019.push(datalist[i].data[0]['2019'].allOutPut)
+          ygzsr2019.push(datalist[i].data[0]['2019'].allIn)
+
+          pjj2019.push(datalist[i].data[0]['2019'].average_money)
+        }
+
+
+        this.setData({
+          dataname: dataname,
+          zxl2018: zxl2018,
+          ygzsr2018: ygzsr2018,
+          pjj2018: pjj2018,
+          zxl2019: zxl2019,
+          ygzsr2019: ygzsr2019,
+          pjj2019: pjj2019,
+          zxl2018sum: datasum[2018].year_allOutPut,
+          ygzsr2018sum: datasum[2018].year_allIn,
+          pjj2018sum: datasum[2018].year_average,
+          zxl2019sum: datasum[2019].year_allOutPut,
+          ygzsr2019sum: datasum[2019].year_allIn,
+          pjj2019sum: datasum[2019].year_average,
+
+        })
+
+      } else {
+        $Toast({
+          content: res.data.resultDesc,
+          type: 'error'
+        });
+      }
+    }).catch(error => { })
+  },
+  //获取塘口报表
+  getgroup() {
+    $request({
+      url: app.globalData.serverBook + "sell/selectSellStatementByGroup",
+      method: "POST",
+      type: 'form',
+    }).then(res => {
+      if (res.data.resultCode == 0) {
+        let zxltk = [];
+        let ygzsrtk = [];
+        let pjjtk = [];
+        let sczpc = [];
+        let groupname = [];
+        let datalist = res.data.data.data;
+        let datasum = res.data.data.sum;
+        for (let i in datalist) {
+          groupname.push(datalist[i].name);
+          zxltk.push(datalist[i].data.allOutPut);
+          ygzsrtk.push(datalist[i].data.allIn);
+          pjjtk.push(datalist[i].data.average_money);
+          sczpc.push(datalist[i].data.count);
+        }
+        console.log(sczpc)
+        console.log(datalist, datasum)
+        this.setData({
+          groupname: groupname,
+          zxltk: zxltk,
+          ygzsrtk: ygzsrtk,
+          pjjtk: pjjtk,
+          sczpc: sczpc,
+          zxltksum: datasum.year_allOutPut,
+          ygzsrtksum: datasum.year_allIn,
+          pjjtksum: datasum.year_average,
+          sczpcsum: datasum.year_count,
+        })
+
+      } else {
+        $Toast({
+          content: res.data.resultDesc,
+          type: 'error'
+        });
+      }
+    }).catch(error => { })
+  },
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad: function (options) {
+  },
+  onShow: function () {
+    // this.getAlllist();
+    // this.getgroup();
+  },
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady: function () {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面显示
+   */
+
+
+  /**
+   * 生命周期函数--监听页面隐藏
+   */
+  onHide: function () {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面卸载
+   */
+  onUnload: function () {
+
+  },
+
+  /**
+   * 页面相关事件处理函数--监听用户下拉动作
+   */
+  onPullDownRefresh: function () {
+
+  },
+
+  /**
+   * 页面上拉触底事件的处理函数
+   */
+  onReachBottom: function () {
+
+  },
+
+  /**
+   * 用户点击右上角分享
+   */
+  onShareAppMessage: function () {
+
+  }
+})

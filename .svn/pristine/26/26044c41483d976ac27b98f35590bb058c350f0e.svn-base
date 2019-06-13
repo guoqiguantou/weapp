@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "授权登录",
+    "usingComponents": {
+      "i-toast": "../../dist1/toast/index",
+      "i-message": "../../dist1/message/index",
+      "van-button": "../../dist/button/index"
+    }
+}

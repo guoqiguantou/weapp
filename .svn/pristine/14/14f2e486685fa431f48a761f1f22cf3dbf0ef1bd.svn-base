@@ -1,0 +1,63 @@
+{
+	"description": "项目配置文件",
+	"packOptions": {
+		"ignore": []
+	},
+	"setting": {
+		"urlCheck": false,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true,
+		"autoAudits": false
+	},
+	"compileType": "miniprogram",
+	"libVersion": "2.4.0",
+	"appid": "wxdd15c478fa121bec",
+	"projectname": "%E8%B4%A6%E6%9C%AC",
+	"debugOptions": {
+		"hidedInDevtools": []
+	},
+	"isGameTourist": false,
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"currentL": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": 0,
+			"list": [
+				{
+					"id": 0,
+					"name": "账本主页面",
+					"pathName": "pages/accountBook/accountBook",
+					"query": ""
+				},
+				{
+					"id": 1,
+					"name": "请假记录",
+					"pathName": "accountBook/pages/handleHoliday/handleHoliday",
+					"query": "type=add"
+				},
+				{
+					"id": 2,
+					"name": "日历",
+					"pathName": "accountBook/pages/handleHoliday/handleHoliday",
+					"query": ""
+				}
+			]
+		}
+	}
+}

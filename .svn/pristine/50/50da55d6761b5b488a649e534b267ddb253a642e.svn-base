@@ -1,0 +1,52 @@
+// accountBook/pages/add/add.js
+Component({
+  /**
+   * 组件的属性列表
+   */
+  properties: {
+
+  },
+
+  /**
+   * 组件的初始数据
+   */
+  data: {
+    form: {
+      amount: "0.00", //药品价格
+      billing_time: "01-22 10:28", //账单时间
+      feed_name: "", //药品名称
+      quantity: "50mg", //购买量
+      dealer_name: "", //经销商名称
+      remarks: "", //补充说明
+    },
+    show: false,
+    minHour: 10,
+    maxHour: 20,
+    minDate: new Date().getTime(),
+    maxDate: new Date(2019, 10, 1).getTime(),
+    currentDate: new Date().getTime()
+  },
+
+  /**
+   * 组件的方法列表
+   */
+  methods: {
+    handleClick() {
+      this.setData({
+        show: true
+      })
+    },
+    onOk(event) {
+      console.log(event)
+      this.setData({
+        show: false
+      });
+    },
+    onNo(event) {
+      console.log(event)
+      this.setData({
+        show: false
+      });
+    },
+  }
+})

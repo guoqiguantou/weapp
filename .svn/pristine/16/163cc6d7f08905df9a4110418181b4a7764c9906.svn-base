@@ -1,0 +1,21 @@
+<!--accountBook/pages/summary/summary.wxml-->
+<view class='wrapper'>
+  <view class='bj'></view>
+  <view class='warp'>
+    <view class='dropyear'>
+      <text bindtap='handleIsVisable'>{{ formData.currentDate }}</text>
+    </view>
+    <view class='boxa'>
+      <text>总成本：</text>
+      <text>21400元</text>
+    </view>
+    <view class='header'>
+      <text>每类成本支出：</text>
+    </view>
+    <view class='list'>
+    </view>
+  </view>
+</view>
+<van-transition name="slide-up" show="{{ isVisiable_Date }}" custom-class="transition_T">
+  <van-datetime-picker type="year" value="{{ currentDate }}" bind:confirm="handleSetDate" />
+</van-transition>

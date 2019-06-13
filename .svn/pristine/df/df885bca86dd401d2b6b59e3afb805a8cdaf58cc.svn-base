@@ -1,0 +1,34 @@
+<view>
+  <view class='form'>
+    <van-cell-group>
+      <van-field input-class="font1" value="{{ form.amount }}" clearable label="药品（元）" />
+      <van-field value="{{ form.billing_time }}" clearable label="账单时间" disabled bindtap="handleClick" data-name="farmingMode" icon="arrow" />
+      <van-field value="{{ form.feed_name }}" label="药品名称" placeholder="请输入名称" />
+      <van-field value="{{ form.quantity }}" label="购买量" placeholder="请输入购买值" />
+      <van-field value="{{ form.type }}" label="使用单位" left disabled use-button-slot>
+        <van-button slot="button" custom-class='btn1 '>mg</van-button>
+        <van-button slot="button" custom-class='btn1 '>L</van-button>
+        <van-button slot="button" custom-class='btn1 '>g</van-button>
+        <van-button slot="button" custom-class='btn1 '>Kg</van-button>
+      </van-field>
+      <van-field value="{{ form.dealer_name }}" label="经销商名称" placeholder="请输入名称" />
+    </van-cell-group>
+  </view>
+  <view class='remark'>
+    <van-field label="补充说明" disabled/>
+    <textarea placeholder='记录一些备注（限200字）' maxlength='200'>{{form.remarks}}</textarea>
+  </view>
+  <view class='down'>
+    <van-button custom-class='btn' size="large" bind:click="submit">确 定</van-button>
+  </view>
+  <van-action-sheet show="{{ show }}">
+  <van-datetime-picker
+  type="datetime"
+  value="{{ currentDate }}"
+  min-date="{{ minDate }}"
+  max-date="{{ maxDate }}"
+  bind:confirm="onOk"
+  bind:cancel="okNo"
+/>
+</van-action-sheet>
+</view>

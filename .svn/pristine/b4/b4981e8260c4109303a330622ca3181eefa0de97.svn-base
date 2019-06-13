@@ -1,0 +1,16 @@
+<!--accountBook/pages/cldform/cldform.wxml-->
+<view class='history-table-wrap'>
+    <view class="table">
+      <view class="tr">
+          <view class="th th1">名称</view>
+          <view class="th th2">{{nowYear}}年</view>
+          <view class="th th3">{{preYear}}年</view>
+      </view>
+      <view class="tr" wx:for="{{table}}" wx:item="item" wx:key="key">
+          <view class="td td1">{{item.name}}</view>
+          <view class="td td2" data-type="{{item.type}}" data-year="{{nowYear}}" bindtap='handleClick'>¥{{item.nowYear}}</view>
+          <view class="td td3" data-type="{{item.type}}" data-year="{{preYear}}" bindtap='handleClick'>¥{{item.preYear}}</view>
+      </view>
+    </view>
+    <i-message id="message" />
+ </view>

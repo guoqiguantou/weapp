@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "饲料购入",
+  "usingComponents": {
+    "van-swipe-cell": "../../../dist/swipe-cell/index"
+  }
+}

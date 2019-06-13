@@ -1,0 +1,75 @@
+/* accountBook/pages/saleslist/saleslist.wxss */
+
+.container {
+  background: #efeff4;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+.table {
+  background: #fff;
+  display: flex;
+}
+
+.table-left {
+  width: 150rpx;
+}
+
+.table-right {
+  width: calc(100% - 150rpx);
+}
+
+.table-left>view {
+  height: 70rpx;
+  line-height: 70rpx;
+  font-size: 26rpx;
+  color: #333;
+  text-align: center;
+  border-bottom: 1px solid #e6e6e6;
+  border-right: 1px solid #e6e6e6;
+}
+.table-left>view:nth-child(2) {
+  color: #666;
+  font-size: 24rpx;
+}
+.table-left>view:nth-child(3) {
+  font-size: 28rpx;
+	color: #3a93ff;
+}
+
+.warp {
+  height:100%;
+  display: flex;
+}
+.table-tk{
+}
+.table-th{
+  text-align: center;
+  font-size: 24rpx;
+	color: #999999;
+  border-bottom: 1px solid #e6e6e6;
+  border-right: 1px solid #e6e6e6;
+  line-height: 70rpx;
+}
+.table-con{
+  display: flex;
+}
+.table-tl{
+}
+.table-tl>view{
+  min-width: 250rpx;
+  text-align: center;
+  font-size: 26rpx;
+	color: #333;
+  border-bottom: 1px solid #e6e6e6;
+  border-right: 1px solid #e6e6e6;
+  line-height: 70rpx;
+}
+.table-tl>view:nth-child(1) {
+  color: #666;
+  font-size: 24rpx;
+}
+.table-tl>view:nth-child(2) {
+  font-size: 28rpx;
+	color: #3a93ff;
+}

@@ -1,0 +1,7 @@
+/* pages/accountBookList/accountBookList.wxss */
+.container {
+  background: #efeff4;
+  min-height: 100vh;
+  box-sizing: border-box;
+  overflow: hidden;
+}

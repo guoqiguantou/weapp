@@ -1,0 +1,111 @@
+{
+	"description": "项目配置文件",
+	"packOptions": {
+		"ignore": []
+	},
+	"setting": {
+		"urlCheck": false,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true,
+		"autoAudits": false
+	},
+	"compileType": "miniprogram",
+	"libVersion": "2.4.0",
+	"appid": "wxdd15c478fa121bec",
+	"projectname": "%E8%B4%A6%E6%9C%AC",
+	"debugOptions": {
+		"hidedInDevtools": []
+	},
+	"isGameTourist": false,
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"currentL": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": 1,
+			"list": [
+				{
+					"id": 0,
+					"name": "主页面",
+					"pathName": "pages/farmingHome/farmingHome",
+					"query": ""
+				},
+				{
+					"id": 1,
+					"name": "小龙虾",
+					"pathName": "accountBook/pages/craylist/craylist",
+					"query": ""
+				},
+				{
+					"id": 3,
+					"name": "水稻",
+					"pathName": "accountBook/pages/ricelist/ricelist",
+					"query": ""
+				},
+				{
+					"id": 4,
+					"name": "新增工人",
+					"pathName": "farmingCarlendar/pages/addWorker/addWorker",
+					"query": ""
+				},
+				{
+					"id": 4,
+					"name": "塘口列表",
+					"pathName": "farmingCarlendar/pages/pondList/pondList",
+					"query": ""
+				},
+				{
+					"id": 5,
+					"name": "农事记录",
+					"pathName": "farmingCarlendar/pages/farmingRecord/farmingRecord",
+					"query": ""
+				},
+				{
+					"id": 6,
+					"name": "工人列表",
+					"pathName": "farmingCarlendar/pages/workerList/workerList",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "农事记录",
+					"pathName": "pages/more/more",
+					"query": ""
+				},
+				{
+					"id": 8,
+					"name": "总成本",
+					"pathName": "accountBook/pages/totalCost/totalCost",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "账本",
+					"pathName": "pages/accountBook/accountBook",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "总成本列表",
+					"pathName": "pages/accountBookList/accountBookList",
+					"query": ""
+				}
+			]
+		}
+	}
+}

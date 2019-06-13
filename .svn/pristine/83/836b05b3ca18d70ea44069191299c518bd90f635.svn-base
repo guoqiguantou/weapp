@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "总成本",
+  "usingComponents": {
+    "van-picker": "../../../dist/picker/index",
+    "van-popup": "../../../dist/popup/index"
+  }
+}

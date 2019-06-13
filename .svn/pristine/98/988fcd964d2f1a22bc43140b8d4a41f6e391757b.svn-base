@@ -1,0 +1,104 @@
+<!--pages/accountBookList/accountBookList.wxml-->
+<view class='container'>
+  <view class='warp'>
+    <view class='header'>成本支出</view>
+    <view class='warpbody'>
+      <view class='item'>
+        <view class='itempic'></view>
+        <view class='itemtext'>药品</view>
+      </view>
+      <view class='item'>
+        <view class='itempic'></view>
+        <view class='itemtext'>饲料</view>
+      </view>
+      <view class='item'>
+        <view class='itempic'></view>
+        <view class='itemtext'>人工</view>
+      </view>
+      <view class='item'>
+        <view class='itempic'></view>
+        <view class='itemtext'>苗种</view>
+      </view>
+      <view class='item'>
+        <view class='itempic'></view>
+        <view class='itemtext'>肥料</view>
+      </view>
+      <view class='item'>
+        <view class='itempic'></view>
+        <view class='itemtext'>农机费用</view>
+      </view>
+      <view class='item'>
+        <view class='itempic'></view>
+        <view class='itemtext'>统计</view>
+      </view>
+    </view>
+  </view>
+  <view class='warp'>
+    <view class='header'>销售记录</view>
+    <view class='warpbody'>
+      <view class='item'>
+        <view class='itempic'></view>
+        <view class='itemtext'>小龙虾</view>
+      </view>
+      <view class='item'>
+        <view class='itempic'></view>
+        <view class='itemtext'>水稻</view>
+      </view>
+      <view class='item'>
+        <view class='itempic'></view>
+        <view class='itemtext'>其他</view>
+      </view>
+      <view class='item'>
+        <view class='itempic'></view>
+        <view class='itemtext'>统计</view>
+      </view>
+    </view>
+  </view>
+  <view class='warp'>
+    <view class='header'>收入记录</view>
+    <view class='warpbody'>
+      <view class='item'>
+        <view class='itempic'></view>
+        <view class='itemtext'>补贴</view>
+      </view>
+      <view class='item'>
+        <view class='itempic'></view>
+        <view class='itemtext'>回款记录</view>
+      </view>
+      <view class='item'>
+        <view class='itempic'></view>
+        <view class='itemtext'>统计</view>
+      </view>
+    </view>
+  </view>
+  <view class='warp'>
+    <view class='header'>用工</view>
+    <view class='warpbody'>
+      <view class='item'>
+        <view class='itempic'></view>
+        <view class='itemtext'>人员登记</view>
+      </view>
+      <view class='item'>
+        <view class='itempic'></view>
+        <view class='itemtext'>请假</view>
+      </view>
+      <view class='item'>
+        <view class='itempic'></view>
+        <view class='itemtext'>工时统计</view>
+      </view>
+    </view>
+  </view>
+  <view class='warp'>
+    <view class='header'>固定资产</view>
+    <view class='warpbody'>
+      <view class='item'>
+        <view class='itempic'></view>
+        <view class='itemtext'>塘口管理</view>
+      </view>
+      <view class='item'>
+        <view class='itempic'></view>
+        <view class='itemtext'>农机管理</view>
+      </view>
+    </view>
+  </view>
+</view>

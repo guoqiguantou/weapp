@@ -1,0 +1,69 @@
+<!--accountBook/pages/summary/summary.wxml-->
+<view class='wrapper'>
+  <view class='dropyear'>
+    <text bindtap='isVisiableDate'>{{year}}</text>
+  </view>
+  <view class='bannerpic'>
+    <image src='../../../images/topbj2.jpg'></image>
+    <view class='bannertext'>
+      <view class='bannertextt'>回额款（元）</view>
+      <view class='bannertextb'>￥1,450,000.00</view>
+    </view>
+  </view>
+  <view class='warp'>
+    <view class='header'>付款方汇款情况（4）</view>
+    <view class='listwarp'>
+      <view class='list'>
+        <view class='listicon'></view>
+        <view class='listright'>
+          <view class='listrightt'>张三：￥40.000.00</view>
+          <view class='listrightb'>
+            <view class='progressbg'>
+              <view class='progressvalue'></view>
+            </view>
+            <view class='progresstext'>66%</view>
+          </view>
+        </view>
+      </view>
+      <view class='list'>
+        <view class='listicon'></view>
+        <view class='listright'>
+          <view class='listrightt'>李四：￥40.000.00</view>
+          <view class='listrightb'>
+            <view class='progressbg'>
+              <view class='progressvalue'></view>
+            </view>
+            <view class='progresstext'>66%</view>
+          </view>
+        </view>
+      </view>
+      <view class='list'>
+        <view class='listicon'></view>
+        <view class='listright'>
+          <view class='listrightt'>苗种：￥40.000.00</view>
+          <view class='listrightb'>
+            <view class='progressbg'>
+              <view class='progressvalue'></view>
+            </view>
+            <view class='progresstext'>66%</view>
+          </view>
+        </view>
+      </view>
+      <view class='list'>
+        <view class='listicon'></view>
+        <view class='listright'>
+          <view class='listrightt'>苗种：￥40.000.00</view>
+          <view class='listrightb'>
+            <view class='progressbg'>
+              <view class='progressvalue'></view>
+            </view>
+            <view class='progresstext'>66%</view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+<van-popup show="{{ show }}" position="bottom" overlay="{{ true }}" bind:close="isVisiableDate">
+  <van-picker columns="{{ columns }}" visible-item-count="4" title="请选择年份" show-toolbar="{{true}}" bind:cancel="isVisiableDate" bind:confirm="clickDate" />
+</van-popup>

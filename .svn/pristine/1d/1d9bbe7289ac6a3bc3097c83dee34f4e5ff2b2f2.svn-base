@@ -1,0 +1,130 @@
+const app = getApp();
+const util = require('../../utils/util.js');
+const {
+  $Toast
+} = require('../../dist1/base/index');
+Page({
+  data: {
+    //判断小程序的API，回调，参数，组件等是否在当前版本可用。
+    canIUse: wx.canIUse('button.open-type.getUserInfo'),
+    nav: ""
+  },
+  onLoad: function(options) {
+    var that = this;
+    that.setData({
+      nav: options.nav
+    })
+    // 查看是否授权
+    wx.getSetting({
+      success: function(res) {
+        if (res.authSetting['scope.userInfo']) {
+          wx.getUserInfo({
+            success: function(res) {
+            }
+          });
+        }
+      }
+    })
+  },
+  bindgetphonenumber: function(e) {
+    if (e.detail.encryptedData) {
+      var that = this;
+      console.log(e)
+      wx.login({
+        success: res => {
+          wx.getUserInfo({
+            success(d) {
+              console.log(d)
+              let paramJSON = {
+                code: res.code,
+                avatarUrl: d.userInfo.avatarUrl,
+                city: d.userInfo.city,
+                country: d.userInfo.country,
+                gender: d.userInfo.gender,
+                language: d.userInfo.language,
+                nickName: d.userInfo.nickName,
+                province: d.userInfo.province,
+                encryptedData: e.detail.encryptedData,
+                iv: e.detail.iv
+              }
+              wx.request({
+                url: app.globalData.serverEncry + 'WeChatLogin',
+                data: paramJSON,
+                method: "post",
+                success: result => {
+                  if (result.data.resultCode == 0) {
+                    console.log('登录成功');
+                    $Toast({
+                      content: '登录成功',
+                      type: 'success'
+                    });
+                    wx.setStorageSync('token', result.data.token);
+                    //跳转到成功页面
+                    if (result.data.isExperience == '0') {
+                      //体验用户
+                      wx.reLaunch({
+                        url: '../newLogin/newLogin'
+                      })
+                    } else if (result.data.isExperience == '1' && (result.data.groupCount == '0' && result.data.deviceCount == '0')) {
+                      //正式用户且没有塘口且没有设备
+                      wx.reLaunch({
+                        url: '../use/use'
+                      })
+                    } else if (result.data.isExperience == '1' && (result.data.groupCount !== '0' || result.data.deviceCount !== '0')) { //正式用户且有塘口或设备
+                      wx.switchTab({
+                        url: '../index/index'
+                      })
+                    }
+                  } else {
+                    $Toast({
+                      content: result.data.resultDesc,
+                      type: 'error'
+                    });
+                    console.log(result.data.resultDesc);
+                  }
+                }
+              })
+
+            }
+          })
+        },
+        fail: err => {
+          $Toast({
+            content: "登录失败",
+            type: "error"
+          })
+        }
+      })
+    } else {
+      //用户按了拒绝按钮
+      wx.showModal({
+        title: '警告',
+        content: '授权失败',
+        showCancel: false,
+        confirmText: '返回授权',
+        success: function(res) {
+          if (res.confirm) {
+            console.log('用户点击了“返回授权”')
+          }
+        }
+      })
+    }
+  },
+  //获取用户信息接口
+  queryUsreInfo: function() {
+    wx.request({
+      url: getApp().globalData.urlPath + 'hstc_interface/queryByOpenid',
+      data: {
+        openid: getApp().globalData.openid
+      },
+      header: {
+        'content-type': 'application/json'
+      },
+      success: function(res) {
+        console.log(res.data);
+        getApp().globalData.userInfo = res.data;
+      }
+    })
+  },
+
+})

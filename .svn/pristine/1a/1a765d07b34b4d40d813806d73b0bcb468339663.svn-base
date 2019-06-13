@@ -1,0 +1,94 @@
+<!--accountBook/pages/saleslist/saleslist.wxml-->
+<view class='container'>
+  <view class='table'>
+    <view class='table-left'>
+      <view></view>
+      <view>名称</view>
+      <view>小龙虾</view>
+      <view>大</view>
+      <view>小</view>
+      <view>23钱</view>
+      <view>456钱</view>
+      <view>789钱</view>
+      <view>9钱以上</view>
+    </view>
+    <view class='table-right'>
+      <scroll-view scroll-x style="width: 100%">
+        <view class='warp'>
+          <view class='table-tk'>
+            <view class='table-th'>2018年</view>
+            <view class='table-con'>
+              <view class='table-tl'>
+                <view>总销量（斤）</view>
+                <view>2600</view>
+                <view>50</view>
+                <view>50</view>
+                <view>50</view>
+                <view>50</view>
+                <view>50</view>
+                <view>50</view>
+              </view>
+              <view class='table-tl'>
+                <view>预估总收入（元）</view>
+                <view>￥450,000.00</view>
+                <view>￥50,000.00</view>
+                <view>￥50</view>
+                <view>￥50</view>
+                <view>￥50</view>
+                <view>￥50</view>
+                <view>￥50</view>
+              </view>
+              <view class='table-tl'>
+                <view>平均价（元）</view>
+                <view>￥50</view>
+                <view>￥50</view>
+                <view>￥50</view>
+                <view>￥50</view>
+                <view>￥50</view>
+                <view>￥50</view>
+                <view>￥50</view>
+              </view>
+            </view>
+          </view>
+          <view class='table-tk'>
+            <view class='table-th'>2018年</view>
+            <view class='table-con'>
+              <view class='table-tl'>
+                <view>总销量（斤）</view>
+                <view>2600</view>
+                <view>50</view>
+                <view>50</view>
+                <view>50</view>
+                <view>50</view>
+                <view>50</view>
+                <view>50</view>
+              </view>
+              <view class='table-tl'>
+                <view>预估总收入（元）</view>
+                <view>￥450,000.00</view>
+                <view>￥50,000.00</view>
+                <view>￥50</view>
+                <view>￥50</view>
+                <view>￥50</view>
+                <view>￥50</view>
+                <view>￥50</view>
+              </view>
+              <view class='table-tl'>
+                <view>平均价（元）</view>
+                <view>￥50</view>
+                <view>￥50</view>
+                <view>￥50</view>
+                <view>￥50</view>
+                <view>￥50</view>
+                <view>￥50</view>
+                <view>￥50</view>
+              </view>
+            </view>
+          </view>
+          <view class='table-right-r'></view>
+        </view>
+      </scroll-view>
+    </view>
+  </view>
+
+</view>

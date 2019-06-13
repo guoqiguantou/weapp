@@ -1,0 +1,110 @@
+<!--accountBook/pages/saleslist/saleslist.wxml-->
+<view class='container'>
+  <van-tabs active="{{ active }}" color="#3A93FF" custom-class="mytabs">
+    <van-tab title="小龙虾报表">
+      <view class='table'>
+        <view class='table-left'>
+          <view></view>
+          <view>名称</view>
+          <view>小龙虾</view>
+          <view wx:for="{{dataname}}" wx:key="{{index}}">{{item}}</view>
+        </view>
+        <view class='table-right'>
+          <scroll-view scroll-x style="width: 100%">
+            <view class='warp'>
+              <view class='table-tk'>
+                <view class='table-th'>2018年</view>
+                <view class='table-con'>
+                  <view class='table-tl'>
+                    <view>总销量（斤）</view>
+                    <view>{{zxl2018sum}}</view>
+                    <view wx:for="{{zxl2018}}" wx:key="{{index}}">{{item}}</view>
+                  </view>
+                  <view class='table-tl'>
+                    <view>预估总收入（元）</view>
+                    <view>￥{{ygzsr2018sum}}</view>
+                    <view wx:for="{{ygzsr2018}}" wx:key="{{index}}">￥{{item}}</view>
+                  </view>
+                  <view class='table-tl'>
+                    <view>平均价（元）</view>
+                    <view>￥{{pjj2018sum}}</view>
+                    <view wx:for="{{pjj2018}}" wx:key="{{index}}">￥{{item}}</view>
+                  </view>
+                </view>
+              </view>
+              <view class='table-tk'>
+                <view class='table-th'>2019年</view>
+                <view class='table-con'>
+                  <view class='table-tl'>
+                    <view>总销量（斤）</view>
+                    <view>{{zxl2019sum}}</view>
+                    <view wx:for="{{zxl2019}}" wx:key="{{index}}">{{item}}</view>
+                  </view>
+                  <view class='table-tl'>
+                    <view>预估总收入（元）</view>
+                    <view>￥{{ygzsr2019sum}}</view>
+                    <view wx:for="{{ygzsr2019}}" wx:key="{{index}}">￥{{item}}</view>
+                  </view>
+                  <view class='table-tl'>
+                    <view>平均价（元）</view>
+                    <view>￥{{pjj2019sum}}</view>
+                    <view wx:for="{{pjj2019}}" wx:key="{{index}}">￥{{item}}</view>
+                  </view>
+                </view>
+              </view>
+              <view class='table-right-r'></view>
+            </view>
+          </scroll-view>
+        </view>
+      </view>
+    </van-tab>
+    <van-tab title="塘口报表">
+      <view class='table'>
+        <view class='table-left'>
+          <view></view>
+          <view>塘口名称</view>
+          <view>塘口</view>
+          <view wx:for="{{groupname}}" wx:key="{{index}}">{{item}}</view>
+        </view>
+        <view class='table-right'>
+          <scroll-view scroll-x style="width: 100%">
+            <view class='warp'>
+              <view class='table-tk'>
+                <view class='table-th'>2018年</view>
+                <view class='table-con'>
+                  <view class='table-tl'>
+                    <view>总销量（斤）</view>
+                    <view>{{zxltksum}}</view>
+                    <view wx:for="{{zxltk}}" wx:key="{{index}}">{{item}}</view>
+                  </view>
+                  <view class='table-tl'>
+                    <view>预估总收入（元）</view>
+                    <view>￥{{ygzsrtksum}}</view>
+                    <view wx:for="{{ygzsrtk}}" wx:key="{{index}}">￥{{item}}</view>
+                  </view>
+                  <view class='table-tl'>
+                    <view>平均价（元）</view>
+                    <view>￥{{pjjtksum}}</view>
+                    <view wx:for="{{pjjtk}}" wx:key="{{index}}">￥{{item}}</view>
+                  </view>
+                  <view class='table-tl'>
+                    <view>收成总批次</view>
+                    <view>{{sczpcsum}}</view>
+                    <view wx:for="{{sczpc}}" wx:key="{{index}}">{{item}}</view>
+                  </view>
+                </view>
+              </view>
+            </view>
+          </scroll-view>
+        </view>
+      </view>
+    </van-tab>
+  </van-tabs>
+
+
+
+
+</view>
+<i-message id="message" />
+<i-toast id="toast" />
+<van-dialog id="van-dialog" />

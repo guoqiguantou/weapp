@@ -1,0 +1,258 @@
+// accountBook/pages/craylist/craylist.js
+import {
+  formatData
+} from "../../../utils/util.js"
+import Toast from '../../../dist/toast/toast';
+const {
+  $request
+} = require('../../../utils/util.js');
+const {
+  $Message
+} = require('../../../dist1/base/index');
+Page({
+
+  /**
+   * 页面的初始数据
+   */
+  data: {
+    id: "",
+    form: {
+      amount: "0", //苗种价格
+      billing_time: "2019-01-22", //账单时间
+      kind: "", //种类
+      quantity: "50", //购买量
+      remarks: "", //补充说明
+    },
+    showKind: false,
+    kindName: "",
+    show: false,
+    minHour: 10,
+    maxHour: 20,
+    minDate: new Date().getTime(),
+    maxDate: new Date(2019, 10, 1).getTime(),
+    currentDate: new Date().getTime(),
+    btnColor: "0",
+    unit: ["尾", "斤"],
+    actions: [{
+        name: '小龙虾',
+        id: "1"
+      },
+      {
+        name: '螃蟹',
+        id: "2"
+      },
+      {
+        name: '鱼',
+        id: "3"
+      }
+    ]
+  },
+  //弹出选择
+  handleClick(event) {
+    console.log(event)
+    let name = event.target.dataset.name
+    if (name == "farmingMode") {
+      this.setData({
+        show: true
+      })
+    } else if (name == "kind") {
+      this.setData({
+        showKind: true
+      })
+    }
+  },
+  //时间点击确定
+  onOk(event) {
+    // console.log(event.detail)
+    let date = new Date(event.detail)
+    date = formatData(date)
+    this.setData({
+      show: false,
+      ['form.billing_time']: date
+    });
+  },
+  //时间点击取消
+  onNo(event) {
+    console.log(event)
+    this.setData({
+      show: false
+    });
+  },
+  //种类点确定
+  onSelect(event) {
+    console.log(event.detail.name)
+    this.setData({
+      showKind: false,
+      ['form.kind']: event.detail.id,
+      kindName: event.detail.name
+    });
+  },
+  //种类点取消
+  onClose(event) {
+    this.setData({
+      showKind: false
+    });
+  },
+  //选择单位
+  changeColor(event) {
+    // console.log(event)
+    // console.log(event.target.dataset.bg)
+    this.setData({
+      btnColor: event.target.dataset.bg,
+
+    });
+  },
+  //输入框双向绑定
+  changeIn(event) {
+    let name = event.target.dataset.name
+    this.setData({
+      ['form.' + name]: event.detail
+    })
+  },
+  changeInn(event) {
+    let name = event.target.dataset.name
+    this.setData({
+      ['form.' + name]: event.detail.value
+    })
+  },
+  //提交
+  submit() {
+    console.log(this.data.form)
+    console.log(this.data.unit[this.data.btnColor])
+    if (this.data.id) {
+      //编辑
+      $request({
+        url: "http://192.168.3.59:9696/seed/findSeedOne",
+        type: "form",
+        params: Object.assign(this.data.form, {
+          token: "token",
+          unit: this.data.unit[this.data.btnColor]
+        })
+      }).then(res => {
+        console.log(res)
+        if (res.data.resultCode == "0") {
+          Toast.success("操作成功")
+          setTimeout(() => {
+            wx.navigateTo({
+              url: '../list/list?type=seed',
+            })
+          }, 2000)
+        } else {
+
+        }
+      })
+    } else {
+      //添加
+      console.log(this.data.form)
+      $request({
+        url: "http://192.168.3.59:9696/seed/addSeed",
+        type: "form",
+        params: Object.assign(this.data.form, {
+          token: "token", 
+          unit:this.data.unit[this.data.btnColor]
+        })
+      }).then(res => {
+        console.log(res)
+        if (res.data.resultCode == "0") {
+          Toast.success("操作成功")
+          setTimeout(() => {
+            wx.navigateTo({
+              url: '../list/list?type=seed',
+            })
+          }, 2000)
+        } else {
+        }
+      })
+    }
+  },
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad: function(options) {
+    // options.id = "-1977085742"
+    if (options.id) {
+      this.setData({
+        id: options.id
+      })
+      wx.setNavigationBarTitle({
+        title: '编辑'
+      })
+      $request({
+        url: "http://localhost:9696/seed/findSeedOne",
+        type: "form",
+        params: {
+          token: "token",
+          seeId: this.data.id
+        }
+      }).then(res => {
+        console.log(res)
+        if (res.data.resultCode == "0") {
+          let index = this.data.unit.indexOf(res.data.data.unit)
+          let kindIndex = this.data.actions.findIndex(item => {
+            return item.id === "2"
+          })
+          this.setData({
+            form: res.data.data,
+            btnColor: index,
+            kindName: this.data.actions[kindIndex].name || "",
+          })
+        } else {
+
+        }
+      })
+    } else {
+      wx.setNavigationBarTitle({
+        title: '添加'
+      })
+    }
+  },
+
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady: function() {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function() {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面隐藏
+   */
+  onHide: function() {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面卸载
+   */
+  onUnload: function() {
+
+  },
+
+  /**
+   * 页面相关事件处理函数--监听用户下拉动作
+   */
+  onPullDownRefresh: function() {
+
+  },
+
+  /**
+   * 页面上拉触底事件的处理函数
+   */
+  onReachBottom: function() {
+
+  },
+
+  /**
+   * 用户点击右上角分享
+   */
+  onShareAppMessage: function() {
+
+  }
+})

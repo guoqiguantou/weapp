@@ -1,0 +1,55 @@
+<!--accountBook/pages/saleslist/saleslist.wxml-->
+<view class='container'>
+  <view class='warp'>
+    <view class='header'>费用报表</view>
+    <view class='table'>
+      <view class='table-left'>
+        <view>名称</view>
+        <view>合计</view>
+        <view wx:for="{{dataname}}" wx:key="{{index}}">{{item}}</view>
+      </view>
+      <view class='table-right'>
+        <view class='table-tk'>
+          <view class='table-con'>
+            <view class='table-tl'>
+              <view>2019年</view>
+              <view>{{zxl2018sum}}</view>
+              <view wx:for="{{zxl2018}}" wx:key="{{index}}">￥{{item}}</view>
+            </view>
+            <view class='table-tl'>
+              <view>2018年</view>
+              <view>￥{{ygzsr2018sum}}</view>
+              <view wx:for="{{ygzsr2018}}" wx:key="{{index}}">￥{{item}}</view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class='warp'>
+    <view class='header'>临时工用工报表</view>
+    <view class='table'>
+      <view class='table-left'>
+        <view>名称</view>
+        <view wx:for="{{dataname}}" wx:key="{{index}}">{{item}}</view>
+      </view>
+      <view class='table-right'>
+        <view class='table-tk'>
+          <view class='table-con'>
+            <view class='table-tl'>
+              <view>2019年</view>
+              <view wx:for="{{zxl2018}}" wx:key="{{index}}">￥{{item}}</view>
+            </view>
+            <view class='table-tl'>
+              <view>2018年</view>
+              <view wx:for="{{ygzsr2018}}" wx:key="{{index}}">￥{{item}}</view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+<i-message id="message" />
+<i-toast id="toast" />
+<van-dialog id="van-dialog" />

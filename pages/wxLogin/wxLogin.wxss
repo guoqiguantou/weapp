@@ -1,0 +1,33 @@
+.userinfo {
+  padding: 90rpx;
+  text-align: center;
+}
+
+.usertext {
+  font-size: 28rpx;
+  margin-top: 20rpx;
+}
+
+.logopic {
+  width: 40%;
+  height:200px;
+  display: block;
+  margin: 0px auto;
+}
+
+.logotext {
+  font-size: 28rpx;
+  margin-top: 20rpx;
+  display: block;
+}
+
+.bottom {
+  margin: 70rpx 50rpx;
+}
+
+.loginbth {
+  box-shadow: 0 8rpx 16rpx rgba(153, 153, 153, 0.18);
+  background-color: #2d8cf0 !important;
+  border: 1px solid #2d8cf0 !important;
+  letter-spacing: 4rpx;
+}

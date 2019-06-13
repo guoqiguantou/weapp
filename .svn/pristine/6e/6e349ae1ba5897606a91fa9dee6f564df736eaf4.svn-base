@@ -1,0 +1,21 @@
+<view wx:if="{{canIUse}}">
+  <view class='userinfo'>
+  <image src='../../images/loginpic.png' class='logopic' mode="aspectFit"></image>
+  <text class='logotext'>获取当前微信绑定的手机号</text>
+  <text class='logotext'>用于登录和同步手机号数据</text>
+    
+  </view>
+  <!-- <button class='bottom' type='primary' open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="bindGetUserInfo">
+    授权登录
+  </button> -->
+  <!-- <button class='bottom' type='primary' open-type="getPhoneNumber" lang="zh_CN" bindgetphonenumber="bindgetphonenumbers">授权手机号
+  </button> -->
+<view class='bottom'>
+  <van-button round type="primary" block custom-class='loginbth' lang="zh_CN" open-type="getPhoneNumber" bind:getphonenumber="bindgetphonenumbers">授权手机号</van-button>
+</view> 
+</view>
+<view wx:else class='warp' wx:else>
+  <text>请升级微信版本</text>
+</view>
+<i-toast id="toast" />
+<i-message id="message" />

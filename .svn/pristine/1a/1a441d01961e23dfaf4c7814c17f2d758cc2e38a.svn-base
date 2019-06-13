@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "农机信息",
+  "usingComponents": {
+    "van-swipe-cell": "../../../dist/swipe-cell/index"
+  }
+}

@@ -1,0 +1,189 @@
+
+import {
+  formatData
+} from "../../../utils/util.js"
+import Toast from '../../../dist/toast/toast';
+const {
+  $request
+} = require('../../../utils/util.js');
+const {
+  $Message
+} = require('../../../dist1/base/index');
+Page({
+
+  /**
+   * 页面的初始数据
+   */
+  data: {
+    id:"",
+    form: {
+      machineName: "", //农机名称
+      purchaseTime: "2019-01-22", //购买时间
+      amount:"",//购买金额
+      remarks: "", //补充说明
+    },
+    show: false,
+    minHour: 10,
+    maxHour: 20,
+    minDate: new Date().getTime(),
+    maxDate: new Date(2019, 10, 1).getTime(),
+    currentDate: new Date().getTime(),
+  },
+  //弹出时间选择
+  handleClick() {
+    this.setData({
+      show: true
+    })
+  },
+  //时间点击确定
+  onOk(event) {
+    // console.log(event.detail)
+    let date = new Date(event.detail)
+    date = formatData(date)
+    this.setData({
+      show: false,
+      ['form.purchaseTime']: date
+    });
+  },
+  //时间点击取消
+  onNo(event) {
+    console.log(event)
+    this.setData({
+      show: false
+    });
+  },
+  //输入框双向绑定
+  changeIn(event) {
+    let name = event.target.dataset.name
+    this.setData({
+      ['form.' + name]: event.detail
+    })
+  },
+  changeInn(event) {
+    let name = event.target.dataset.name
+    this.setData({
+      ['form.' + name]: event.detail.value
+    })
+  },
+  //提交
+  submit() {
+    console.log(this.data.form)
+    if (this.data.id) {
+      //编辑
+      $request({
+        url: "http://192.168.3.189:11110/farm/updateMachineryinfo",
+        type: "form",
+        params: {
+          token: "token",
+          miId: this.data.id
+        }
+      }).then(res => {
+        console.log(res)
+
+      })
+    } else {
+      //添加
+      $request({
+        url: "http://192.168.3.189:11110/farm/addMachineryinfo",
+        type: "form",
+        params: Object.assign(this.data.form,{
+          token: "token"
+        })
+      }).then(res => {
+        console.log(res)
+        if (res.data.resultCode == "0") {
+          Toast.success("操作成功")
+          setTimeout(()=>{
+            wx.navigateTo({
+              url: '../machineryinfolist/machineryinfolist',
+            })
+          },2000)
+        } else {
+          
+        }
+      })
+    }
+  },
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad: function(options) {
+    if (options.id) {
+      this.setData({
+        id: options.id
+      })
+      wx.setNavigationBarTitle({
+        title: '编辑'
+      })
+      $request({
+        url: "http://192.168.3.59:9696/machinery/findMachineryOne",
+        type: "form",
+        params: {
+          token: "token",
+          miId: this.data.id
+        }
+      }).then(res => {
+        console.log(res)
+        if (res.data.resultCode=="0"){
+          console.log(111)
+          this.setData({ form: res.data.data})
+        }else{
+         
+        }
+      })
+    } else {
+      wx.setNavigationBarTitle({
+        title: '添加'
+      })
+    }
+  },
+
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady: function() {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function() {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面隐藏
+   */
+  onHide: function() {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面卸载
+   */
+  onUnload: function() {
+
+  },
+
+  /**
+   * 页面相关事件处理函数--监听用户下拉动作
+   */
+  onPullDownRefresh: function() {
+
+  },
+
+  /**
+   * 页面上拉触底事件的处理函数
+   */
+  onReachBottom: function() {
+
+  },
+
+  /**
+   * 用户点击右上角分享
+   */
+  onShareAppMessage: function() {
+
+  }
+})

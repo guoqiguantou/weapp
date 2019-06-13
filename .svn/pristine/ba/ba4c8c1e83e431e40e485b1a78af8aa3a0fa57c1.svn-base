@@ -1,0 +1,161 @@
+// accountBook/pages/cldform/cldform.js
+const {
+  $request
+} = require('../../../utils/util.js');
+const {
+  $Message
+} = require('../../../dist1/base/index');
+Page({
+
+  /**
+   * 页面的初始数据
+   */
+  data: {
+    nowYear: new Date().getFullYear(),
+    preYear: new Date().getFullYear() - 1,
+    table: [],
+    total:{
+      name:"总收入金额",
+      "2019":"1000",
+      "2018":"2222"
+    },
+    tbody:{
+      "subsidy": {
+        "sum": {
+          "2018": 123,
+          "2019": 321
+        },
+        "data": {
+          "农机": {
+            "2019": 45,
+            "2018": 0
+          },
+          "苗种": {
+            "2019": 35,
+            "2018": 0
+          },
+          "其它": {
+            "2019": 0,
+            "2018": 65
+          }
+        }
+      },
+      "return_money": {
+
+      }
+    }
+  },
+
+  format(num) {
+    var reg = /\d{1,3}(?=(\d{3})+$)/g;
+    return (num + '').replace(reg, '$&,');
+  },
+  //点击跳转
+  handleClick(event) {
+    let res = event.target.dataset
+    wx.navigateTo({
+      url: '../cldformDetails/cldformDetails?type=' + res.type + "&year=" + res.year,
+    })
+  },
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad: function(options) {
+    let res = {
+      "resultCode": "0",
+      "resultDesc": "操作成功!",
+      "data": {
+        "sum": {
+          "2018": 123,
+          "2019": 321
+        },
+        "data": {
+          "subsidy": {
+            "sum": {
+              "2018": 123,
+              "2019": 321
+            },
+            "data": {
+              "农机": {
+                "2019": 45,
+                "2018": 0
+              },
+              "苗种": {
+                "2019": 35,
+                "2018": 0
+              },
+              "其它": {
+                "2019": 0,
+                "2018": 65
+              }
+            }
+          },
+          "return_money": {
+
+          }
+        }
+      }
+    }
+    let data = res.data.data
+    console.log(data)
+    // $request({
+    //   url: "http://localhost:9696/excel/findAllList",
+    //   type: "form",
+    //   params: {
+    //     token: "token"
+    //   }
+    // }).then(res => {
+    //   // console.log(res)
+
+    // })
+  },
+
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady: function() {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function() {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面隐藏
+   */
+  onHide: function() {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面卸载
+   */
+  onUnload: function() {
+
+  },
+
+  /**
+   * 页面相关事件处理函数--监听用户下拉动作
+   */
+  onPullDownRefresh: function() {
+
+  },
+
+  /**
+   * 页面上拉触底事件的处理函数
+   */
+  onReachBottom: function() {
+
+  },
+
+  /**
+   * 用户点击右上角分享
+   */
+  onShareAppMessage: function() {
+
+  }
+})

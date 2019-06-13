@@ -1,0 +1,28 @@
+<view class='container'>
+  <view class='form'>
+    <van-cell-group custom-class="cell_T">
+      <van-cell title="还款人" value="张三" is-link/>
+      <van-field value="{{ password }}" label="还款金额(元)" placeholder="请输入还款金额..." required border="{{ false }}" />
+      <van-cell title="还款时间" value="2019-04-05" is-link/>
+    </van-cell-group>
+  </view>
+
+  <view class='footer'>
+    <i-button bind:click="handleClick" type="info" long="true">联通两边按钮</i-button>
+  </view>
+</view>
+
+<!-- 日期 -->
+<van-popup overlay="{{ false }}" show="{{ true }}" position="bottom">
+  <van-datetime-picker type="date" value="{{ currentDate }}" min-date="{{ minDate }}" bind:change="onChange" />
+</van-popup>
+
+<!-- 人员列表 -->
+<i-drawer mode="right" visible="{{true}}" bind:close="toggleRight1">
+  <view class="worker">
+    单击遮罩层关闭
+  </view>
+</i-drawer>
+<i-message id="message" />
+<van-toast id="van-toast" />
+<van-Notify id="van-notify" />

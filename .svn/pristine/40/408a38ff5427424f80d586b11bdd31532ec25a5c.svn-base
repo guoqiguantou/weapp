@@ -1,0 +1,80 @@
+<!--accountBook/pages/craylist/craylist.wxml-->
+<view class='container'>
+  <view class='header'>
+    <view class='headert'>当年总销量（斤）</view>
+    <view class='headerb'>￥450,000.00</view>
+  </view>
+  <view class='list'>
+    <view class='listheight'>
+      一月
+    </view>
+    <view class='listcon'>
+      <van-swipe-cell id="swipe-cell" right-width="{{ 130}}" async-close bind:close="onClose">
+        <view class='item'>
+          <view class='item-pic'></view>
+          <view class='item-center'>
+            <text class='item-name'>规格大</text>
+            <text class='item-time'>02-14 08:24</text>
+          </view>
+          <view class='item-right'>￥50.00</view>
+        </view>
+        <view slot="right" class='warpright'>
+          <view class='edit'>编辑</view>
+          <view class='del'>删除</view>
+        </view>
+      </van-swipe-cell>
+
+
+      <view class='item'>
+        <view class='item-pic'></view>
+        <view class='item-center'>
+          <text class='item-name'>规格大</text>
+          <text class='item-time'>02-14 08:24</text>
+        </view>
+        <view class='item-right'>￥50.00</view>
+      </view>
+      <view class='item'>
+        <view class='item-pic'></view>
+        <view class='item-center'>
+          <text class='item-name'>规格大</text>
+          <text class='item-time'>02-14 08:24</text>
+        </view>
+        <view class='item-right'>￥50.00</view>
+      </view>
+    </view>
+  </view>
+  <view class='list'>
+    <view class='listheight'>
+      一月
+    </view>
+    <view class='listcon'>
+      <view class='item'>
+        <view class='item-pic'></view>
+        <view class='item-center'>
+          <text class='item-name'>规格大</text>
+          <text class='item-time'>02-14 08:24</text>
+        </view>
+        <view class='item-right'>￥50.00</view>
+      </view>
+      <view class='item'>
+        <view class='item-pic'></view>
+        <view class='item-center'>
+          <text class='item-name'>规格大</text>
+          <text class='item-time'>02-14 08:24</text>
+        </view>
+        <view class='item-right'>￥50.00</view>
+      </view>
+      <view class='item'>
+        <view class='item-pic'></view>
+        <view class='item-center'>
+          <text class='item-name'>规格大</text>
+          <text class='item-time'>02-14 08:24</text>
+        </view>
+        <view class='item-right'>￥50.00</view>
+      </view>
+    </view>
+  </view>
+  <view class='addbtn'>
+    <i class="iconfont icon-jiahao1"></i>
+  </view>
+</view>
